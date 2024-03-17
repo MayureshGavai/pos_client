@@ -12,11 +12,9 @@ const Item = () => {
 
   useEffect(()=>{
     dispatch(fetchItems())
-    console.log(itemsData)
   },[])
 
   const addToCart = (item) => {
-    console.log("Adding item to cart:", item);
     dispatch(add(item));
   };
 
@@ -35,18 +33,22 @@ const Item = () => {
     <div className="grid grid-cols-6 gap-4 mt-4">
       {itemsData.map((item, idx) => (
         <div key={idx}
-          className="flex flex-col bg-white border rounded-lg p-3 font-Inter  cursor-pointer active:border-black"
+          className="flex flex-col bg-white border rounded-lg font-Inter  cursor-pointer active:shadow-lg active:border-green-800"
           onClick={()=>addToCart(item)}
         >
-          <img
-            src={item.image}
-            alt=""
-            className="h-32 object-cover mb-2 rounded-lg"
-          />
+          <div className="">
+            <img
+              src={item.image}
+              alt=""
+              className="h-32 w-full object-cover rounded-t-lg"
+            />
+          </div>
+          <div className="my-1 mx-3">
           <h1 className="font-medium text-lg">{item.name}</h1>
           <div className="flex justify-between items-center">
             <p className="text-sm">${item.price}</p>
             <FiPlus />
+          </div>
           </div>
         </div>
       ))}

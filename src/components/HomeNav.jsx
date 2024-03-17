@@ -19,12 +19,16 @@ const HomeNav = () => {
         setShowCartbar(false)
     }
 
+    // const subTotal = items.reduce((total,item)=> total + item.price * item.quantity,0)
+    // const tax = Math.round(subTotal * 0.06).toFixed(2)
+    // const total = subTotal + tax
+
   return (
-    <div className='px-2 py-4 sticky top-0 bg-white flex justify-between items-center text-3xl'>
+    <div className='px-2 py-4 sticky top-0 bg-white flex justify-between items-center text-3xl font-Inter'>
         <h1 className='text-2xl mt-2 font-semibold font-Inter'>HomePage</h1>
         <button onClick={toggleCartbar} className='relative'>
             <HiOutlineShoppingCart />
-            <span className='absolute top-[-10px] right-[-10px] px-2 text-base bg-black text-white rounded-full'>
+            <span className='absolute top-[-10px] right-[-10px] px-2 text-base bg-green-500 text-white rounded-full'>
                 {items.length}
             </span>
         </button>
@@ -36,9 +40,10 @@ const HomeNav = () => {
             <button onClick={closeCartbar} className='absolute top-0 right-0 m-4'>
                 <IoCloseOutline />
             </button>
-            <div className='mt-14 mx-4'>
+            <div className='mt-14'>
                 <Cart/>
             </div>
+
 
         </div>
         {/* Overlay */}

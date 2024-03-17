@@ -7,7 +7,7 @@ const SideNavItem = ({to,icon,text}) => {
 
   return (
     // <li className='mb-3'>
-        <Link to={to} className={`text-md cursor-pointer h-10 flex flex-col justify-center items-center px-6 py-8 mb-3 rounded-lg  ${isActive ? 'bg-black/[0.15]' : 'hover:bg-black/[0.15]'}`}>
+        <Link to={to} className={`text-md cursor-pointer h-10 flex flex-col justify-center items-center px-6 py-8 mb-3 rounded-lg  ${isActive ? 'bg-green-500 text-white' : 'hover:bg-green-300'}`}>
             <span className='text-xl'>{icon}</span>
             <span>{text}</span>
         </Link>

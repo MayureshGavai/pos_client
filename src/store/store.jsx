@@ -1,15 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { itemsApi } from "./itemsApi";
-import itemsSlice from "./itemsSlice";
+import { itemsReducer } from "./itemsSlice";
 import cartSlice from "./cartSlice";
+// import postItemSlice from "./postItemSlice";
 // import cartReducer from "./cartSlice";
 
 
 export const store = configureStore({
     reducer:{
         cart: cartSlice,
-        items: itemsSlice,
+        items: itemsReducer,
+        // postItem : postItemReducer,
         [itemsApi.reducerPath] : itemsApi.reducer
     },
 

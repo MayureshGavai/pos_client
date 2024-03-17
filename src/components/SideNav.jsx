@@ -10,7 +10,7 @@ import SideNavItem from './SideNavItem';
 
 const SideNav = () => {
   return (
-    <div className='flex flex-col w-1/12 px-4 py-8 h-screen border-r font-Inter z-10 fixed'>
+    <div className='flex flex-col w-1/12 px-4 py-8 h-screen bg-white border-r font-Inter z-10 fixed'>
         <h1 className=' text-2xl font-semibold mb-6 mx-3'>POS</h1>
         <SideNavItem to="/" icon={<GoHome/>} text={"Home"}/>
         <SideNavItem to="/bills" icon={<BiFoodMenu/>} text={"Bills"}/>
