@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       fontFamily:{
-        Inter : ["Inter"]
+        Inter : ["Inter"],
+        Helvetica : ["Helvetica"],
+        SFMono: ['SFMono-Regular']
       }
     },
   },

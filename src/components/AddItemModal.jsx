@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from "react-redux";
 import { addNewItem } from "../store/itemsSlice";
-const Modal = () => {
+const AddItemModal = () => {
 
   const dispatch = useDispatch()
 
@@ -21,7 +21,7 @@ const Modal = () => {
 
   const onSubmit = (data) => {
     // Convert itemPrice to number
-    data.itemPrice = Number(data.itemPrice);
+    data.price = Number(data.price);
 
     console.log(data); // Display form data in console
     dispatch(addNewItem (data))
@@ -40,7 +40,7 @@ const Modal = () => {
   return (
     <>
       <div>
-        <button className='px-3 py-1.5 bg-green-500 rounded-md text-white' onClick={() => setShowModal(true)}>Add New Product</button>
+        <button className='px-3 py-1.5 bg-green-500 rounded-md text-white' onClick={() => setShowModal(true)}>Add New Item</button>
         {showModal && (
           <>
             <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
@@ -58,40 +58,40 @@ const Modal = () => {
 
                   <div className="relative px-6 py-3">
                     <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data" autoComplete="off">
-                      <div className="w-full flex justify-between items-start my-3">
-                        <label htmlFor="name" className="w-1/3">Product Name</label>
+                      <div className="w-full flex justify-between items-center my-3">
+                        <label htmlFor="name" className="w-1/3">Item Name</label>
                         <div className="w-2/3 flex flex-col">
-                        <input className="w-full border p-1 rounded" {...register('itemName', { required: true })} />
-                        {errors?.itemName && <p style={{color:'red'}}>This field is required</p>}
+                        <input className="w-full border p-1 rounded" {...register('name', { required: true })} />
+                        {errors?.name && <p style={{color:'red'}}>This field is required</p>}
                         </div>
                         </div>
-                      <div className="flex justify-between items-start my-3">
-                        <label htmlFor="price" className="w-1/3">Product Price</label>
+                      <div className="flex justify-between items-center my-3">
+                        <label htmlFor="price" className="w-1/3">Item Price</label>
                         <div className="w-2/3 flex flex-col">
-                        <input type="number" min={0} className="w-full border p-1 rounded" {...register('itemPrice', { required: true })} />
-                        {errors?.itemPrice && <p style={{color:'red'}}>This field is required</p>}
+                        <input type="number" min={0} className="w-full border p-1 rounded" {...register('price', { required: true })} />
+                        {errors?.price && <p style={{color:'red'}}>This field is required</p>}
                       </div>
                         </div>
-                      <div className="flex justify-between items-start my-3">
-                        <label htmlFor="name" className="w-1/3">Product Category</label>
+                      <div className="flex justify-between items-center my-3">
+                        <label htmlFor="name" className="w-1/3">Item Category</label>
                         <div className="flex flex-col w-2/3">
-                        <select name="" id="" className="w-full p-1 border rounded" {...register('itemCategory',{required:true})}>
+                        <select name="" id="" className="w-full p-1 border rounded" {...register('category',{required:true})}>
                           {categories.map((category, idx) => {
                             return (
                               <option value={category} key={idx}>{category}</option>
                             )
                           })}
                         </select>
-                        {errors?.itemCategory && <p style={{color:'red'}}>This field is required</p>}
+                        {errors?.category && <p style={{color:'red'}}>This field is required</p>}
                       
                         </div>
                       </div>
 
-                      <div className="flex justify-between items-start my-3">
-                        <label htmlFor="name" className="w-1/3">Product Image</label>
+                      <div className="flex justify-between items-center my-3">
+                        <label htmlFor="name" className="w-1/3">Item Image (URL)</label>
                         <div className="w-2/3 flex flex-col">                          
-                        <input type="link" name="itemImage" className="w-full border p-1 rounded" {...register('itemImage',{required:true})} />
-                        {errors?.itemImage && <p style={{color:'red'}}>This field is required</p>}
+                        <input type="link" name="itemImage" className="w-full border p-1 rounded" {...register('image',{required:true})} />
+                        {errors?.image && <p style={{color:'red'}}>This field is required</p>}
                         </div>
                       </div>
 
@@ -131,4 +131,4 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default AddItemModal;

@@ -15,7 +15,7 @@ const initialState = {
 // Fetch Items Thunk
 export const fetchItems = createAsyncThunk('items/fetch', async () => {
     try {
-        const res = await fetch('http://localhost:8080/api/items/getitems');
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/items/getitems`);
         const data = await res.json(); // Await the JSON parsing
         return data;
     } catch (err) {
@@ -26,7 +26,7 @@ export const fetchItems = createAsyncThunk('items/fetch', async () => {
 // Add New Item Thunk
 export const addNewItem = createAsyncThunk('items/post', async (itemData, thunkAPI) => {
     try {
-        const response = await axios.post('http://localhost:8080/api/items/postitems', itemData);
+        const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/items/postitems`, itemData);
         return response.data;
     } catch (err) {
         throw new Error('Failed to add new item');
@@ -38,7 +38,7 @@ export const updateItem = createAsyncThunk(
     'items/updateItem',
     async (data, thunkAPI) => {
       try {
-        const response = await axios.patch(`http://localhost:8080/api/items/${data._id}`, data);
+        const response = await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/items/${data._id}`, data);
         return response.data;
       } catch (error) {
         throw new Error('Failed to update item');
@@ -51,7 +51,7 @@ export const deleteItem = createAsyncThunk(
     async (itemId, thunkAPI) => {
       try {
         // Send a DELETE request to the server
-        await axios.delete(`http://localhost:8080/api/items/${itemId}`);
+        await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/items/${itemId}`);
         // Return the itemId to be used by the reducer
         return itemId;
       } catch (error) {
@@ -81,7 +81,7 @@ export const itemsSlice = createSlice({
                 state.status = STATUSES.LOADING;
             })
             .addCase(addNewItem.fulfilled, (state, action) => {
-                state.data = action.payload;
+                state.data.push(action.payload);
                 state.status = STATUSES.IDLE;
             })
             .addCase(addNewItem.rejected, (state, action) => {

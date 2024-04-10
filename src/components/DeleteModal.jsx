@@ -20,16 +20,18 @@ const DeleteModal = ({item}) => {
  
 
   const onSubmit = () => {
-    console.log(item._id)
+    // console.log(item._id)
     dispatch(deleteItem(item._id))
     .unwrap()
     .then(() => {
       // Handle success
-      console.log('Item deleted successfully');
+      // console.log('Item deleted successfully');
+      toast.success("Item Deleted Sucessfully", { position: "top-center" });
     })
     .catch((error) => {
       // Handle error
-      console.error('Failed to delete item:', error);
+      // console.error('Failed to delete item:', error);
+      toast.error("Item not able to delete", { position: "top-center" });
     });
     setShowModal(false)
   }
@@ -43,7 +45,7 @@ const DeleteModal = ({item}) => {
         {showModal && (
           <>
             <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-              <div className="relative w-2/5 my-6 mx-auto max-w-3xl">
+              <div className="relative w-1/4 my-6 mx-auto max-w-3xl">
                 <div className="border-a0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                   <div className="flex items-center justify-between p-5 border-b rounded-t">
                     <h1 className="text-3xl">Delete Item</h1>
@@ -59,10 +61,10 @@ const DeleteModal = ({item}) => {
                     <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data" autoComplete="off">
                       <h1>Are you sure to delete this item</h1>
                       <div className="mt-4 flex justify-around border rounded-md">
-                          <img src={item.image} className="object-cover w-1/3 h-20 rounded-s-md" alt="" />
+                          <img src={item.image} className="object-cover w-2/5 h-20 rounded-s-md" alt="" />
                         {/* <div className="w-24 h-24">
                         </div> */}
-                        <div className="w-2/3 ml-6 flex flex-col justify-around">
+                        <div className="w-3/5 ml-3 flex flex-col justify-around">
                           <h1 className="font-semibold text-lg">{item.name}</h1>
                           <h1 className="text-base">{item.category}</h1>
                           <h1 className="text-base">₹ {item.price}</h1>

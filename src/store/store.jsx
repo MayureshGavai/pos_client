@@ -3,15 +3,16 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import { itemsApi } from "./itemsApi";
 import { itemsReducer } from "./itemsSlice";
 import cartSlice from "./cartSlice";
-// import postItemSlice from "./postItemSlice";
-// import cartReducer from "./cartSlice";
+import userSlice from "./userSlice";
+import orderSlice from "./orderSlice";
 
 
 export const store = configureStore({
     reducer:{
         cart: cartSlice,
         items: itemsReducer,
-        // postItem : postItemReducer,
+        user : userSlice,
+        orders : orderSlice,
         [itemsApi.reducerPath] : itemsApi.reducer
     },
 
