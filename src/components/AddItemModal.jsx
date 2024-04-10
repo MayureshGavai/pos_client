@@ -12,7 +12,7 @@ const AddItemModal = () => {
   const [showModal, setShowModal] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm();
   
-  const categories = ['breakfast','side dish','curry','drinks','rice','bread','noodles','desert'];
+  const categories = ['coffee','tea','juice','milkshake','bakery','burger','pasta','pizza','sandwich','sides','soft drinks'];
 
   const closeModal = () => {
     setShowModal(false)

@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { registerUser } from '../store/userSlice';
 import cafelogo from '../assets/cafelogo.jpg'
+import oops from '../assets/oops.jpg'
 
 const RegisterPage = () => {
 
@@ -33,7 +34,26 @@ const RegisterPage = () => {
     }
 
   return (
-    <div className='w-1/4 mx-auto mt-10 container border shadow-md border-black rounded-md font-Inter'>
+    <div>
+      <div className="md:hidden">
+        <div className="text-center font-Inter">
+          <div className="w-1/3 h-1/3 mx-auto mt-4">
+          <img src={cafelogo} alt="" className="w-full h-full object-cover" />
+          </div>
+          <h1 className="w-fit mx-auto p-2 bg-green-500 text-lg text-white rounded-lg">Café Brew & Bite</h1>
+          <div className="p-5">
+            <img src={oops} alt="" className="w-1/2 mx-auto"/>
+          <h1 className="text-3xl font-semibold my-4">Oops!</h1>
+          <p className="text-lg mb-4">
+            It looks like you're using a mobile device.
+          </p>
+          <p className="text-lg mb-4">
+            Please switch to a laptop or desktop for the best experience.
+          </p>
+          </div>
+        </div>
+      </div>
+    <div className='hidden md:block md:w-1/2 lg:w-1/4 mx-auto mt-10 container border shadow-md border-black rounded-md font-Inter'>
             <div className='mt-2 w-24 h-24 mx-auto'>
               <img src={cafelogo} className='w-full h-full object-cover' alt="" />
             </div>
@@ -93,7 +113,7 @@ const RegisterPage = () => {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
+                        />
                     </svg>
                   )}
                 </button>
@@ -107,6 +127,7 @@ const RegisterPage = () => {
       <ToastContainer />
 
     </div>
+                        </div>
   )
 }
 

@@ -14,7 +14,7 @@ const EditModal = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   
-  const categories = ['breakfast','side dish','curry','drinks','rice','bread','noodles','desert'];
+  const categories = ['coffee','tea','juice','milkshake','bakery','burger','pasta','pizza','sandwich','sides','soft drinks'];
 
   const toggleModal = () => {
     setShowModal(!showModal);
