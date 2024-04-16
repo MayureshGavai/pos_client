@@ -7,7 +7,7 @@ import HomeNav from '../components/HomeNav'
 
 const HomePage = () => {
 
-
+  
   return (
     <div className='flex '>
         <SideNav/>

@@ -14,6 +14,8 @@ const Protected = ({ Component }) => {
     }
   }, []);
 
+  
+
   return (
     <div>
       <div className="md:hidden">

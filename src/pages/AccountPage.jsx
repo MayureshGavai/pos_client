@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 const AccountPage = () => {
   const user = useSelector((state) => state.user);
   // console.log(user);
-
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
