@@ -5,6 +5,7 @@ import {  HiOutlineUserGroup } from "react-icons/hi2";
 import { MdOutlineFastfood } from "react-icons/md";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { LuUserCircle2 } from "react-icons/lu";
+import { TbReportAnalytics } from "react-icons/tb";
 import cafelogo from '../assets/cafelogo.jpg'
 
 import SideNavItem from './SideNavItem';
@@ -20,6 +21,7 @@ const SideNav = () => {
         <SideNavItem to="/" icon={<GoHome/>} text={"Home"}/>
         <SideNavItem to="/orderslist" icon={<BiFoodMenu/>} text={"Orders"}/>
         <SideNavItem to="/items" icon={<MdOutlineFastfood/>} text={"Items"}/>
+        <SideNavItem to="/reports" icon={<TbReportAnalytics />} text={"Reports"} />
         {/* <SideNavItem to="/customers" icon={<HiOutlineUserGroup/>} text={"Customers"}/> */}
         <SideNavItem to="/account" icon={<LuUserCircle2   />} text={"Account"} />
 

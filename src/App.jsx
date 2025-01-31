@@ -8,6 +8,7 @@ import AccountPage from './pages/AccountPage'
 import Protected from './pages/Protected'
 import OrderListPage from './pages/OrderListPage'
 import Order from './pages/Order'
+import ReportsPage from './pages/ReportsPage'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Protected Component={HomePage}/>}/>
         <Route path='/items' element={<Protected Component={ItemsPage}/>}/>
+        <Route path='/reports' element={<Protected Component={ReportsPage}/>} />
         <Route path='/account' element={<Protected Component={AccountPage} />}/>
         <Route path='/orderslist' element={<Protected Component={OrderListPage} />}/>
         <Route path='/order' element={<Protected Component={Order} />}/>
