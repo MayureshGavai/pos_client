@@ -5,7 +5,7 @@ import { itemsReducer } from "./itemsSlice";
 import cartSlice from "./cartSlice";
 import userSlice from "./userSlice";
 import orderSlice from "./orderSlice";
-
+import reportSlice from "./reportSlice";
 
 export const store = configureStore({
     reducer:{
@@ -13,6 +13,7 @@ export const store = configureStore({
         items: itemsReducer,
         user : userSlice,
         orders : orderSlice,
+        reports : reportSlice,
         [itemsApi.reducerPath] : itemsApi.reducer
     },
 
